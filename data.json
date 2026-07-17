@@ -34,15 +34,16 @@
     {
       "name": "IPRoyal",
       "site": "iproyal.com",
-      "tp": null,
-      "tpCount": null,
+      "tp": 4.7,
+      "tpCount": "674",
       "types": [],
       "price": null,
       "desc": "IPRoyal offers fast and reliable proxies that help clients perform efficient web scraping, market research, ad verification, SEO monitoring, social media management, price monitoring, travel fare aggregation, and much more.",
       "editor": "",
       "editorScore": null,
       "sources": [
-        "https://www.trustpilot.com/review/iproyal.com"
+        "https://www.trustpilot.com/review/iproyal.com",
+        "https://www.g2.com/products/iproyal/reviews"
       ],
       "fetched_at": "2026-07-17T04:11:43+00:00"
     },
