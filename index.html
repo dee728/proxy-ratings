@@ -23,6 +23,14 @@
     margin:0; font-size:22px; font-weight:700; letter-spacing:-0.5px; text-transform:lowercase;
   }
   header p{margin:4px 0 0; font-size:12px; color:var(--muted);}
+  .datasrc{
+    display:flex; gap:8px; padding:10px 32px; border-bottom:1px solid var(--line);
+    align-items:center; background:#fafafa; flex-wrap:wrap; font-size:11px;
+  }
+  .datasrc input[type=text]{flex:1; min-width:220px;}
+  .datasrc .status{color:var(--muted); white-space:nowrap;}
+  .datasrc .status.err{color:#a00;}
+  .datasrc .status.ok{color:#070;}
   .controls{
     display:flex; gap:8px; padding:16px 32px; border-bottom:1px solid var(--line); flex-wrap:wrap; align-items:center;
   }
@@ -92,6 +100,14 @@
     <button class="primary" id="toggleAdd">+ add provider</button>
   </div>
 </header>
+
+<div class="datasrc">
+  <label style="white-space:nowrap;">data source:</label>
+  <input type="text" id="dataUrl" placeholder="https://yourname.github.io/repo/data.json">
+  <button id="loadData">load</button>
+  <button id="exportData">export current data →json</button>
+  <span class="status" id="dataStatus">using built-in seed data</span>
+</div>
 
 <form id="addForm">
   <div class="grid2">
@@ -185,6 +201,65 @@ const seed = [
 let providers = JSON.parse(JSON.stringify(seed));
 let sortKey = "score", sortDir = -1;
 let openIndex = null;
+
+function normalizeProvider(p){
+  return {
+    name: p.name || "unnamed",
+    site: p.site || "",
+    tp: (p.tp === undefined || p.tp === null) ? null : Number(p.tp),
+    tpCount: p.tpCount || null,
+    types: Array.isArray(p.types) ? p.types : [],
+    price: p.price || null,
+    desc: p.desc || "",
+    editor: p.editor || "",
+    editorScore: (p.editorScore === undefined || p.editorScore === null) ? null : Number(p.editorScore),
+    sources: Array.isArray(p.sources) ? p.sources : []
+  };
+}
+
+async function loadFromUrl(url){
+  const status = document.getElementById('dataStatus');
+  status.className = 'status';
+  status.textContent = 'loading...';
+  try{
+    const res = await fetch(url, {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    const list = Array.isArray(json) ? json : (json.providers || []);
+    if(!list.length) throw new Error('no providers array found in json');
+    providers = list.map(normalizeProvider);
+    openIndex = null;
+    status.className = 'status ok';
+    status.textContent = `loaded ${providers.length} providers` + (json.updated_at ? ` · updated ${json.updated_at}` : '');
+    render();
+  }catch(err){
+    status.className = 'status err';
+    status.textContent = 'failed to load: ' + err.message + ' (check the url is public and CORS-enabled, e.g. github pages)';
+  }
+}
+
+document.getElementById('loadData').addEventListener('click', ()=>{
+  const url = document.getElementById('dataUrl').value.trim();
+  if(url) loadFromUrl(url);
+});
+
+document.getElementById('exportData').addEventListener('click', ()=>{
+  const out = {updated_at: new Date().toISOString(), providers: providers.map(normalizeProvider)};
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'data.json';
+  a.click();
+});
+
+// both files are expected to live in the same GitHub Pages repo, so this
+// just fetches the relative data.json next to index.html. Override the
+// input field manually if you ever want to point at a different source.
+const DEFAULT_DATA_URL = "data.json";
+if(DEFAULT_DATA_URL){
+  document.getElementById('dataUrl').value = DEFAULT_DATA_URL;
+  loadFromUrl(DEFAULT_DATA_URL);
+}
 
 function starBar(score, max=5){
   const pct = Math.max(0, Math.min(100, (score/max)*100));
@@ -308,8 +383,8 @@ document.getElementById('addForm').addEventListener('submit', (e)=>{
   const desc = document.getElementById('f_desc').value.trim();
   const editor = document.getElementById('f_editor').value.trim();
 
-  providers.push({
-    name, site: site||'—',
+  providers.push(normalizeProvider({
+    name, site: site||'',
     tp: isNaN(tp)?null:tp, tpCount: tpc||null,
     types: types.length?types:['unspecified'],
     price: price||null,
@@ -317,7 +392,7 @@ document.getElementById('addForm').addEventListener('submit', (e)=>{
     editor: editor||'',
     editorScore: null,
     sources: []
-  });
+  }));
 
   e.target.reset();
   addForm.classList.remove('open');
