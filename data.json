@@ -235,7 +235,7 @@
       "tp": 2.9,
       "tpCount": "2",
       "g2": null,
-      "types": ["residential", "datacenter", "static", "mobile", "ipv6"],
+      "types": ["residential", "datacenter", "static", "mobile", "ipv6", "isp"],
       "price": "Starts at $0.28/gb, down to $0.055/gb",
       "cheapest_plan": "$0.28/gb",
       "editor": "Very reliable proxy provider, cheaper than most competition",

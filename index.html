@@ -6,7 +6,8 @@
 <title>proxy ratings</title>
 <style>
   :root{
-    --bg:#fff; --fg:#000; --line:#000; --muted:#666; --hover:#f2f2f2;
+    --bg:#0d0d0d; --bg2:#161616; --fg:#f0f0f0; --line:#f0f0f0;
+    --muted:#8a8a8a; --hover:#1e1e1e; --row-border:rgba(240,240,240,0.14);
   }
   *{box-sizing:border-box;}
   body{
@@ -25,59 +26,74 @@
   header p{margin:4px 0 0; font-size:12px; color:var(--muted);}
   .datasrc{
     display:flex; gap:8px; padding:10px 32px; border-bottom:1px solid var(--line);
-    align-items:center; background:#fafafa; flex-wrap:wrap; font-size:11px;
+    align-items:center; background:var(--bg2); flex-wrap:wrap; font-size:11px;
   }
   .datasrc input[type=text]{flex:1; min-width:220px;}
   .datasrc .status{color:var(--muted); white-space:nowrap;}
-  .datasrc .status.err{color:#a00;}
-  .datasrc .status.ok{color:#070;}
+  .datasrc .status.err{color:#ff6b6b;}
+  .datasrc .status.ok{color:#7ee8a3;}
   .controls{
     display:flex; gap:8px; padding:16px 32px; border-bottom:1px solid var(--line); flex-wrap:wrap; align-items:center;
   }
   input[type=text], select, textarea{
-    font-family:inherit; border:1px solid var(--line); background:#fff; color:#000;
+    font-family:inherit; border:1px solid var(--line); background:var(--bg2); color:var(--fg);
     padding:7px 9px; font-size:12px;
   }
   input[type=text]{min-width:180px;}
   button{
-    font-family:inherit; border:1px solid var(--line); background:#fff; color:#000;
+    font-family:inherit; border:1px solid var(--line); background:var(--bg2); color:var(--fg);
     padding:7px 12px; font-size:12px; cursor:pointer; text-transform:lowercase;
   }
   button:hover{background:var(--hover);}
-  button.primary{background:#000; color:#fff;}
-  button.primary:hover{background:#222;}
+  button.primary{background:var(--fg); color:var(--bg); font-weight:700;}
+  button.primary:hover{background:#cfcfcf;}
+  button.active{background:var(--fg); color:var(--bg); font-weight:700;}
+  ::placeholder{color:#666;}
   main{padding:0 32px 60px;}
   table{width:100%; border-collapse:collapse; margin-top:20px; font-size:12.5px;}
   th{
     text-align:left; text-transform:lowercase; font-weight:700; font-size:11px;
     border-bottom:2px solid var(--line); padding:8px 10px; cursor:pointer; white-space:nowrap;
+    user-select:none;
   }
   th:hover{background:var(--hover);}
-  td{border-bottom:1px solid #ddd; padding:10px 10px; vertical-align:top;}
+  th .arrow{color:var(--muted); font-size:10px;}
+  td{border-bottom:1px solid var(--row-border); padding:10px 10px; vertical-align:top;}
   tr.provider-row:hover{background:var(--hover); cursor:pointer;}
   .name-cell{font-weight:700;}
   .name-cell .site{display:block; font-weight:400; color:var(--muted); font-size:11px;}
+  .group-label{
+    font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted);
+    padding:14px 10px 4px; border-bottom:1px solid var(--row-border);
+  }
   .score{font-weight:700;}
   .bar-wrap{display:inline-block; width:60px; height:6px; border:1px solid var(--line); vertical-align:middle; margin-right:6px;}
-  .bar-fill{display:block; height:100%; background:#000;}
+  .bar-fill{display:block; height:100%; background:var(--fg);}
   .tag{
-    display:inline-block; border:1px solid var(--line); font-size:10px; padding:1px 5px; margin:1px 3px 1px 0;
-    text-transform:lowercase;
+    display:inline-block; border:1px solid; font-size:10px; padding:1px 5px; margin:1px 3px 1px 0;
+    text-transform:lowercase; border-radius:2px;
   }
+  .type-filters{display:flex; gap:6px; flex-wrap:wrap; align-items:center;}
+  .type-pill{
+    font-family:inherit; font-size:10px; padding:4px 9px; cursor:pointer; text-transform:lowercase;
+    border-radius:2px; border:1px solid; opacity:0.55;
+  }
+  .type-pill.active{opacity:1; font-weight:700;}
+  .checkbox-filter{display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted);}
   .detail{display:none;}
   .detail.open{display:table-row;}
-  .detail td{background:#fafafa; border-bottom:2px solid var(--line);}
+  .detail td{background:var(--bg2); border-bottom:2px solid var(--line);}
   .detail-inner{display:grid; grid-template-columns:1.2fr 1fr; gap:24px;}
   .detail-inner h3{font-size:12px; text-transform:lowercase; margin:0 0 6px; border-bottom:1px solid var(--line); padding-bottom:4px;}
   .detail-inner p{font-size:12.5px; margin:0 0 10px;}
-  .editor-box{border:1px solid var(--line); padding:10px; background:#fff;}
+  .editor-box{border:1px solid var(--line); padding:10px; background:var(--bg);}
   .editor-box textarea{width:100%; min-height:70px; resize:vertical; font-size:12px;}
   .editor-meta{display:flex; gap:8px; margin-top:6px; align-items:center;}
   .editor-meta input[type=text]{width:60px; min-width:0;}
   .source-list{font-size:11px; color:var(--muted); margin-top:8px;}
-  .source-list a{color:#000;}
+  .source-list a{color:var(--fg);}
   form#addForm{
-    display:none; border-bottom:2px solid var(--line); padding:18px 32px; background:#fafafa;
+    display:none; border-bottom:2px solid var(--line); padding:18px 32px; background:var(--bg2);
   }
   form#addForm.open{display:block;}
   .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px 16px;}
@@ -86,7 +102,6 @@
   .field.full{grid-column:1/-1;}
   .empty{padding:40px 0; text-align:center; color:var(--muted); font-size:13px;}
   footer{padding:14px 32px; border-top:1px solid var(--line); font-size:11px; color:var(--muted);}
-  ::placeholder{color:#999;}
 </style>
 </head>
 <body>
@@ -129,9 +144,10 @@
 
 <div class="controls">
   <input type="text" id="search" placeholder="search providers...">
-  <select id="typeFilter"><option value="">all types</option></select>
-  <button id="sortScore">sort: rating ↓</button>
-  <button id="sortName">sort: name</button>
+  <div class="type-filters" id="typeFilters"></div>
+  <label class="checkbox-filter"><input type="checkbox" id="editorOnlyFilter"> editor-reviewed only</label>
+  <button id="clearSort">clear sort</button>
+  <button id="clearFilters">clear filters</button>
 </div>
 
 <main>
@@ -151,7 +167,7 @@
 </main>
 
 <footer>
-  ratings sourced from trustpilot / g2 as of mid‑2026 · editor's experience is subjective, firsthand commentary · click a row to expand
+  ratings sourced from trustpilot / g2 as of mid‑2026 · editor's experience is subjective, firsthand commentary · click a row to expand · editor-reviewed providers are always listed first
 </footer>
 
 <script>
@@ -160,6 +176,31 @@ const seed = [{}];
 let providers = JSON.parse(JSON.stringify(seed));
 let sortKey = "score", sortDir = -1;
 let openIndex = null;
+let activeTypes = new Set();
+let editorOnly = false;
+
+const HEADER_LABELS = {name:'provider', score:'review score', editor:'editor score', types:'types', price:'from'};
+const DEFAULT_DIR = {name:1, score:-1, editor:-1, types:1, price:1};
+
+const TYPE_PALETTE = [
+  {bg:'#3b1f1f', fg:'#ff8f8f', bd:'#a33'},
+  {bg:'#1f3b2a', fg:'#7ee8a3', bd:'#2a7'},
+  {bg:'#1f2a3b', fg:'#8ec2ff', bd:'#37a'},
+  {bg:'#3b331f', fg:'#ffd27e', bd:'#a83'},
+  {bg:'#331f3b', fg:'#e08fff', bd:'#83a'},
+  {bg:'#1f3b3b', fg:'#7effe0', bd:'#2aa'},
+  {bg:'#3b1f33', fg:'#ff8fd0', bd:'#a37'},
+  {bg:'#2a2a1f', fg:'#e6e68a', bd:'#996'}
+];
+function hashStr(s){ let h=0; for(let i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))>>>0;} return h; }
+function typeColors(t){ return TYPE_PALETTE[hashStr(t) % TYPE_PALETTE.length]; }
+function typeStyle(t){ const c = typeColors(t); return `background:${c.bg};color:${c.fg};border-color:${c.bd};`; }
+
+function parsePrice(p){
+  if(!p) return Infinity;
+  const m = String(p).match(/[\d.]+/);
+  return m ? parseFloat(m[0]) : Infinity;
+}
 
 function normalizeProvider(p){
   return {
@@ -225,40 +266,82 @@ function starBar(score, max=5){
   return `<span class="bar-wrap"><span class="bar-fill" style="width:${pct}%"></span></span>`;
 }
 
-function render(){
-  const q = document.getElementById('search').value.trim().toLowerCase();
-  const typeF = document.getElementById('typeFilter').value;
-  let list = providers.map((p,i)=>({...p, _i:i}));
-  if(q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.site.toLowerCase().includes(q));
-  if(typeF) list = list.filter(p => p.types.includes(typeF));
+function compareBySort(a, b){
+  if(!sortKey) return 0;
+  let av, bv;
+  if(sortKey==="name"){ av=a.name.toLowerCase(); bv=b.name.toLowerCase(); return sortDir*(av<bv?-1:av>bv?1:0); }
+  if(sortKey==="score"){ av=a.tp||0; bv=b.tp||0; return sortDir*(av-bv); }
+  if(sortKey==="editor"){ av=a.editorScore||0; bv=b.editorScore||0; return sortDir*(av-bv); }
+  if(sortKey==="types"){ av=(a.types[0]||'').toLowerCase(); bv=(b.types[0]||'').toLowerCase(); return sortDir*(av<bv?-1:av>bv?1:0); }
+  if(sortKey==="price"){ av=parsePrice(a.price); bv=parsePrice(b.price); return sortDir*(av-bv); }
+  return 0;
+}
 
-  list.sort((a,b)=>{
-    let av, bv;
-    if(sortKey==="name"){ av=a.name.toLowerCase(); bv=b.name.toLowerCase(); return sortDir*(av<bv?-1:av>bv?1:0); }
-    if(sortKey==="score"){ av=a.tp||0; bv=b.tp||0; return sortDir*(av-bv); }
-    if(sortKey==="editor"){ av=a.editorScore||0; bv=b.editorScore||0; return sortDir*(av-bv); }
-    return 0;
-  });
-
+function renderTypeFilters(){
   const typeSet = new Set();
   providers.forEach(p=>p.types.forEach(t=>typeSet.add(t)));
-  const sel = document.getElementById('typeFilter');
-  const cur = sel.value;
-  sel.innerHTML = '<option value="">all types</option>' + [...typeSet].sort().map(t=>`<option value="${t}">${t}</option>`).join('');
-  sel.value = cur;
+  const box = document.getElementById('typeFilters');
+  box.innerHTML = [...typeSet].sort().map(t=>{
+    const c = typeColors(t);
+    const active = activeTypes.has(t);
+    return `<button type="button" class="type-pill${active?' active':''}" data-type="${t}"
+      style="background:${c.bg};color:${c.fg};border-color:${c.bd};">${t}</button>`;
+  }).join('');
+  box.querySelectorAll('.type-pill').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const t = btn.dataset.type;
+      if(activeTypes.has(t)) activeTypes.delete(t); else activeTypes.add(t);
+      render();
+    });
+  });
+}
+
+function renderHeaderArrows(){
+  document.querySelectorAll('th[data-k]').forEach(th=>{
+    const k = th.dataset.k;
+    let arrow = '';
+    if(sortKey===k) arrow = sortDir===1 ? ' ▲' : ' ▼';
+    th.innerHTML = HEADER_LABELS[k] + `<span class="arrow">${arrow}</span>`;
+  });
+}
+
+function render(){
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  renderTypeFilters();
+  renderHeaderArrows();
+
+  let list = providers.map((p,i)=>({...p, _i:i}));
+  if(q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.site.toLowerCase().includes(q));
+  if(activeTypes.size) list = list.filter(p => p.types.some(t=>activeTypes.has(t)));
+  if(editorOnly) list = list.filter(p => p.editorScore != null);
+
+  // editor-reviewed providers always float to the top, each group sorted independently
+  const withEditor = list.filter(p=>p.editorScore!=null).sort(compareBySort);
+  const withoutEditor = list.filter(p=>p.editorScore==null).sort(compareBySort);
+  const ordered = [...withEditor.map(p=>({...p, _group:'editor'})), ...withoutEditor.map(p=>({...p, _group:'other'}))];
 
   const tbody = document.getElementById('tbody');
   tbody.innerHTML = '';
-  document.getElementById('emptyMsg').style.display = list.length ? 'none' : 'block';
+  document.getElementById('emptyMsg').style.display = ordered.length ? 'none' : 'block';
 
-  list.forEach(p=>{
+  let lastGroup = null;
+  ordered.forEach(p=>{
+    if(p._group !== lastGroup){
+      lastGroup = p._group;
+      if(withEditor.length && withoutEditor.length){
+        const lab = document.createElement('tr');
+        lab.innerHTML = `<td colspan="5" class="group-label">${p._group==='editor' ? 'editor-reviewed' : 'not yet reviewed'}</td>`;
+        tbody.appendChild(lab);
+      }
+    }
+
     const row = document.createElement('tr');
     row.className = 'provider-row';
     row.innerHTML = `
       <td class="name-cell">${p.name}<span class="site">${p.site}</span></td>
       <td>${p.tp ? `<span class="score">${p.tp.toFixed(1)}</span> ${starBar(p.tp)} <span style="color:var(--muted)">(${p.tpCount||'—'})</span>` : '<span style="color:var(--muted)">unrated</span>'}</td>
       <td>${p.editorScore!=null ? `<span class="score">${p.editorScore.toFixed(1)}</span> ${starBar(p.editorScore)}` : '<span style="color:var(--muted)">—</span>'}</td>
-      <td>${p.types.map(t=>`<span class="tag">${t}</span>`).join('')}</td>
+      <td>${p.types.map(t=>`<span class="tag" style="${typeStyle(t)}">${t}</span>`).join('')}</td>
       <td>${p.price||'—'}</td>
     `;
     row.addEventListener('click', ()=>{ openIndex = (openIndex===p._i) ? null : p._i; render(); });
@@ -310,17 +393,37 @@ function render(){
 }
 
 document.getElementById('search').addEventListener('input', render);
-document.getElementById('typeFilter').addEventListener('change', render);
+document.getElementById('editorOnlyFilter').addEventListener('change', (e)=>{
+  editorOnly = e.target.checked;
+  render();
+});
+document.getElementById('clearSort').addEventListener('click', ()=>{
+  sortKey = null; sortDir = -1;
+  render();
+});
+document.getElementById('clearFilters').addEventListener('click', ()=>{
+  activeTypes.clear();
+  editorOnly = false;
+  document.getElementById('editorOnlyFilter').checked = false;
+  document.getElementById('search').value = '';
+  render();
+});
 
 document.querySelectorAll('th[data-k]').forEach(th=>{
   th.addEventListener('click', ()=>{
     const k = th.dataset.k;
-    if(sortKey===k) sortDir *= -1; else { sortKey=k; sortDir=-1; }
+    if(sortKey !== k){
+      sortKey = k;
+      sortDir = DEFAULT_DIR[k];
+    } else if(sortDir === DEFAULT_DIR[k]){
+      sortDir = -DEFAULT_DIR[k];
+    } else {
+      sortKey = null;
+      sortDir = -1;
+    }
     render();
   });
 });
-document.getElementById('sortScore').addEventListener('click', ()=>{ sortKey='score'; sortDir = sortDir===-1&&sortKey==='score' ? 1 : -1; render(); });
-document.getElementById('sortName').addEventListener('click', ()=>{ sortKey='name'; sortDir=1; render(); });
 
 const addForm = document.getElementById('addForm');
 document.getElementById('toggleAdd').addEventListener('click', ()=>{
