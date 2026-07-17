@@ -341,7 +341,7 @@ function render(){
       <td class="name-cell">${p.name}<span class="site">${p.site}</span></td>
       <td>${p.tp ? `<span class="score">${p.tp.toFixed(1)}</span> ${starBar(p.tp)} <span style="color:var(--muted)">(${p.tpCount||'—'})</span>` : '<span style="color:var(--muted)">unrated</span>'}</td>
       <td>${p.editorScore!=null ? `<span class="score">${p.editorScore.toFixed(1)}</span> ${starBar(p.editorScore)}` : '<span style="color:var(--muted)">—</span>'}</td>
-      <td>${p.types.map(t=>`<span class="tag" style="${typeStyle(t)}">${t}</span>`).join('')}</td>
+      <td>${[...p.types].sort().map(t=>`<span class="tag" style="${typeStyle(t)}">${t}</span>`).join('')}</td>
       <td>${p.price||'—'}</td>
     `;
     row.addEventListener('click', ()=>{ openIndex = (openIndex===p._i) ? null : p._i; render(); });
