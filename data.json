@@ -206,15 +206,16 @@
     {
       "name": "ScrapFly",
       "site": "scrapfly.io",
-      "tp": null,
-      "tpCount": null,
-      "g2": null,
+      "tp": 3.3,
+      "tpCount": "62",
+      "g2": 4.7,
       "types": ["residential", "datacenter", "api"],
       "price": "$30/mo (API-based subscription)",
       "cheapest_plan": "$30/mo",
       "desc": "Web scraping API with built-in proxy management, JavaScript rendering, and CAPTCHA handling. No-code scraping available.",
       "sources": [
-        "https://sourceforge.net/software/product/ScrapFly/"
+        "https://ca.trustpilot.com/review/scrapfly.io",
+        "https://www.g2.com/products/scrapfly/reviews"
       ]
     },
     {

@@ -113,8 +113,8 @@
   <div class="grid2">
     <div class="field"><label>name</label><input type="text" id="f_name" placeholder="e.g. Oxylabs"></div>
     <div class="field"><label>website</label><input type="text" id="f_site" placeholder="e.g. oxylabs.io"></div>
-    <div class="field"><label>trustpilot score (0–5)</label><input type="text" id="f_tp" placeholder="e.g. 4.3"></div>
-    <div class="field"><label>trustpilot review count</label><input type="text" id="f_tpc" placeholder="e.g. 1,200"></div>
+    <div class="field"><label>review score (0–5)</label><input type="text" id="f_tp" placeholder="e.g. 4.3"></div>
+    <div class="field"><label>review count</label><input type="text" id="f_tpc" placeholder="e.g. 1,200"></div>
     <div class="field"><label>proxy types</label><input type="text" id="f_types" placeholder="residential, datacenter, ipv6"></div>
     <div class="field"><label>starting price</label><input type="text" id="f_price" placeholder="e.g. $2.00/gb"></div>
     <div class="field full"><label>description (leave blank to auto web-search)</label><textarea id="f_desc" rows="2" placeholder="short description of the provider"></textarea></div>
@@ -124,7 +124,7 @@
     <button type="submit" class="primary">save provider</button>
     <button type="button" id="cancelAdd">cancel</button>
   </div>
-  <p style="font-size:11px;color:var(--muted);margin-top:8px;">note: this runs client-side in your browser, so it can't fetch live Trustpilot pages itself — enter the rating you found (via Claude web search or trustpilot.com directly), and it'll render alongside the seeded providers below.</p>
+  <p style="font-size:11px;color:var(--muted);margin-top:8px;">note: this runs client-side in your browser, so any changes won't sync to the live server.</p>
 </form>
 
 <div class="controls">
@@ -139,7 +139,7 @@
     <thead>
       <tr>
         <th data-k="name">provider</th>
-        <th data-k="score">trustpilot</th>
+        <th data-k="score">review score</th>
         <th data-k="editor">editor score</th>
         <th data-k="types">types</th>
         <th data-k="price">from</th>
@@ -151,7 +151,7 @@
 </main>
 
 <footer>
-  ratings sourced from trustpilot as of mid‑2026 · editor's experience is subjective, firsthand commentary · click a row to expand
+  ratings sourced from trustpilot / g2 as of mid‑2026 · editor's experience is subjective, firsthand commentary · click a row to expand
 </footer>
 
 <script>
