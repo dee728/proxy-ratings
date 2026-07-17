@@ -100,7 +100,7 @@
       "tp": 4.2,
       "tpCount": "136",
       "g2": null,
-      "types": ["residential", "datacenter", "isp", "mobile"],
+      "types": ["residential", "datacenter", "isp", "mobile", "rotating", "unblocker", "api"],
       "price": "$3.50/gb",
       "cheapest_plan": "$3.50/gb",
       "editor": null,
