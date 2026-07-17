@@ -59,7 +59,7 @@
   .name-cell .site{display:block; font-weight:400; color:var(--muted); font-size:11px;}
   .score{font-weight:700;}
   .bar-wrap{display:inline-block; width:60px; height:6px; border:1px solid var(--line); vertical-align:middle; margin-right:6px;}
-  .bar-fill{height:100%; background:#000;}
+  .bar-fill{display:block; height:100%; background:#000;}
   .tag{
     display:inline-block; border:1px solid var(--line); font-size:10px; padding:1px 5px; margin:1px 3px 1px 0;
     text-transform:lowercase;
@@ -155,48 +155,7 @@
 </footer>
 
 <script>
-const seed = [
-  {
-    name:"Webshare", site:"webshare.io",
-    tp:4.1, tpCount:"1,300+",
-    types:["datacenter","residential","static"],
-    price:"$2.99/mo",
-    desc:"Budget-oriented proxy service popular for cheap datacenter proxies and a free tier (10 proxies / 1GB). Self-serve dashboard, monthly IP rotation, no KYC gate. Reviews trend positive on price-to-performance but note support response times and occasional regional IP shortages.",
-    editor:"Good starting point for small-scale scraping or IPv6 rotation testing — the free tier is enough to validate a script before committing budget. Dashboard API is straightforward. Wouldn't rely on it for anything requiring guaranteed uptime at scale.",
-    editorScore:3.7,
-    sources:["trustpilot.com/review/webshare.io"]
-  },
-  {
-    name:"Decodo (formerly Smartproxy)", site:"decodo.com",
-    tp:4.3, tpCount:"1,900+",
-    types:["residential","mobile","datacenter","ISP"],
-    price:"$3.75/gb",
-    desc:"Vilnius-based provider, rebranded from Smartproxy in 2025. 65M+ IP pool, advanced targeting, clean API, and a newer AI-scraping stack (MCP server, structured JSON parsing). No SOC 2/ISO 27001 yet; higher block rates on Cloudflare-fronted targets than top-tier competitors.",
-    editor:"Consistently the most 'it just works' of the mid-tier providers we've tried — good docs, sane pricing ladder, self-serve onboarding with no sales call. Support has been fast in our experience.",
-    editorScore:4.2,
-    sources:["trustpilot.com/review/decodo.com","g2.com"]
-  },
-  {
-    name:"IPRoyal", site:"iproyal.com",
-    tp:3.6, tpCount:"3,000+",
-    types:["residential","datacenter","ISP","mobile"],
-    price:"$1.75/gb",
-    desc:"Value-focused residential proxy provider with strong success-rate benchmarks (97%+) and competitive per-GB pricing. Lower Trustpilot average than peers, likely reflecting high review volume from a price-sensitive user base and occasional support friction.",
-    editor:"",
-    editorScore:null,
-    sources:["iproyal.com/blog","trustpilot.com (via aggregator)"]
-  },
-  {
-    name:"Bright Data", site:"brightdata.com",
-    tp:4.4, tpCount:"980+",
-    types:["residential","datacenter","ISP","mobile","unblocker"],
-    price:"enterprise / usage-based",
-    desc:"The largest and most enterprise-oriented proxy network, with a heavy compliance and orchestration stack (SDKs, unblocker tier, dedicated CSMs). Strong G2 scores (4.6) and generally praised for scale and reliability; priced well above budget competitors.",
-    editor:"",
-    editorScore:null,
-    sources:["trustpilot.com/review/brightdata.com","g2.com/compare"]
-  }
-];
+const seed = [{}];
 
 let providers = JSON.parse(JSON.stringify(seed));
 let sortKey = "score", sortDir = -1;
@@ -388,7 +347,7 @@ document.getElementById('addForm').addEventListener('submit', (e)=>{
     tp: isNaN(tp)?null:tp, tpCount: tpc||null,
     types: types.length?types:['unspecified'],
     price: price||null,
-    desc: desc || `no description added yet for ${name} — ask Claude to research it via web search.`,
+    desc: desc || `no description added yet for ${name}`,
     editor: editor||'',
     editorScore: null,
     sources: []

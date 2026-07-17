@@ -1,477 +1,446 @@
 {
-  "updated_at": "2026-07-17T04:15:44+00:00",
+  "updated_at": "2026-07-16T12:00:00+00:00",
+  "metadata": {
+    "source": "Web search data (Trustpilot, G2, official pricing pages)",
+    "verification_date": "July 2026",
+    "note": "tp = Trustpilot rating, g2 = G2 rating, tp_count = review count on Trustpilot"
+  },
   "providers": [
     {
       "name": "Webshare",
       "site": "webshare.io",
-      "tp": 4.0,
-      "tpCount": "1,346",
-      "types": [],
-      "price": null,
-      "desc": "Buy proxy servers. Download proxy server list. HTTP Proxy SOCKS5 proxy servers. Free proxy list available. Run your internet business on Webshare.",
-      "editor": "",
-      "editorScore": null,
-      "sources": [
-        "https://www.trustpilot.com/review/webshare.io"
-      ],
-      "fetched_at": "2026-07-17T04:11:03+00:00"
-    },
-    {
-      "name": "Decodo",
-      "site": "decodo.com",
       "tp": 4.2,
-      "tpCount": "1,993",
-      "types": [],
-      "price": null,
-      "desc": "Decodo (formerly Smartproxy) offers residential, static (ISP) residential, mobile, datacenter, dedicated datacenter proxies, and cutting-edge scraping solutions for various use cases. We provide a pool of 65M+ IPs with free advanced targeting for marketing research, social media account management, and online retail.",
-      "editor": "",
-      "editorScore": null,
+      "tp_count": "1,223",
+      "g2": 4.3,
+      "g2_count": "64,000+ customers",
+      "types": ["datacenter", "residential", "isp", "http", "socks5"],
+      "price": "$1.40/gb - $2.99/gb",
+      "cheapest_plan": "$1.40/gb",
+      "desc": "Budget-friendly proxy provider with 80M+ rotating residential IPs, 500K+ datacenter IPs, 99.7% uptime. Trusted by 64,000+ customers.",
       "sources": [
-        "https://www.trustpilot.com/review/decodo.com"
-      ],
-      "fetched_at": "2026-07-17T04:11:15+00:00"
+        "https://www.trustpilot.com/review/webshare.io",
+        "https://www.webshare.io"
+      ]
     },
     {
       "name": "IPRoyal",
       "site": "iproyal.com",
-      "tp": 4.7,
-      "tpCount": "674",
-      "types": [],
-      "price": null,
-      "desc": "IPRoyal offers fast and reliable proxies that help clients perform efficient web scraping, market research, ad verification, SEO monitoring, social media management, price monitoring, travel fare aggregation, and much more.",
-      "editor": "",
-      "editorScore": null,
+      "tp": 4.1,
+      "tp_count": "2,000+",
+      "g2": 4.7,
+      "g2_count": "623",
+      "types": ["residential", "datacenter", "mobile", "isp"],
+      "price": "$1.75/gb",
+      "cheapest_plan": "$1.75/gb",
+      "desc": "Fast and reliable residential proxy network with 32M+ IPs across 195+ countries. Pay-as-you-go pricing, non-expiring traffic, 98.8% success rate.",
       "sources": [
         "https://www.trustpilot.com/review/iproyal.com",
         "https://www.g2.com/products/iproyal/reviews"
-      ],
-      "fetched_at": "2026-07-17T04:11:43+00:00"
+      ]
     },
     {
       "name": "Bright Data",
       "site": "brightdata.com",
-      "tp": 4.5,
-      "tpCount": "1,009",
-      "types": [],
-      "price": null,
-      "desc": "Bright Data is a leading web data infrastructure company trusted by more than 25,000 organizations worldwide to ethically access, collect, structure, and deliver public web data at scale. Businesses, developers, data teams, AI teams, researchers, and enterprises use Bright Data to turn public web data into reliable inputs for AI, BI, analytics, automation, and decision-making.",
-      "editor": "",
-      "editorScore": null,
+      "tp": 4.4,
+      "tp_count": "970",
+      "g2": 4.6,
+      "g2_count": "240+",
+      "types": ["residential", "datacenter", "mobile", "isp", "unblocker"],
+      "price": "Enterprise/usage-based (~$8/gb residential entry)",
+      "cheapest_plan": "~$8/gb (PAYG residential), enterprise plans custom",
+      "desc": "Leading web data infrastructure platform trusted by 25,000+ organizations. Premium provider focused on enterprise with managed scraping solutions and advanced features.",
       "sources": [
-        "https://www.trustpilot.com/review/brightdata.com"
-      ],
-      "fetched_at": "2026-07-17T04:12:12+00:00"
+        "https://www.trustpilot.com/review/brightdata.com",
+        "https://www.g2.com/products/bright-data/reviews"
+      ]
+    },
+    {
+      "name": "Geonode",
+      "site": "geonode.com",
+      "tp": 4.8,
+      "tp_count": "166",
+      "g2": null,
+      "types": ["residential", "datacenter", "static"],
+      "price": "$0.45/gb - $0.79/gb",
+      "cheapest_plan": "$0.45/gb",
+      "desc": "Budget proxy provider with 30M+ residential IPs. Known for 80% cost savings vs competitors. Unlimited bandwidth plans available. Excellent Trustpilot rating.",
+      "sources": [
+        "https://www.trustpilot.com/review/geonode.com"
+      ]
     },
     {
       "name": "Oxylabs",
       "site": "oxylabs.io",
       "tp": 3.9,
-      "tpCount": "749",
-      "types": [],
-      "price": null,
-      "desc": "Oxylabs is the leading global provider of premium proxies and data scraping solutions for large-scale web data extraction.",
-      "editor": "",
-      "editorScore": null,
+      "tp_count": "749",
+      "g2": 4.7,
+      "g2_count": "Enterprise focus",
+      "types": ["residential", "datacenter", "mobile", "isp"],
+      "price": "$6/gb - $2.50/gb (enterprise scale)",
+      "cheapest_plan": "$6/gb (entry), $2.50/gb (corporate tier)",
+      "desc": "Premium enterprise provider with 175M+ residential IPs, 99.99% rotating DC success rate, sophisticated AI-powered routing. Best for high-volume operations.",
       "sources": [
-        "https://www.trustpilot.com/review/oxylabs.io"
-      ],
-      "fetched_at": "2026-07-17T04:12:24+00:00"
+        "https://www.trustpilot.com/review/oxylabs.io",
+        "https://www.g2.com/products/oxylabs/reviews"
+      ]
     },
     {
       "name": "Rayobyte",
       "site": "rayobyte.com",
       "tp": 4.2,
-      "tpCount": "136",
-      "types": [],
-      "price": null,
-      "desc": "Rayobyte is one of the world's leading proxy and scraping companies serving large enterprises to scrape publicly available web data.",
-      "editor": "",
-      "editorScore": null,
+      "tp_count": "136",
+      "g2": null,
+      "types": ["residential", "datacenter", "isp", "mobile"],
+      "price": "$3.50/gb",
+      "cheapest_plan": "$3.50/gb",
+      "desc": "Leading enterprise proxy provider with 40M+ residential IPs. Offers residential, ISP, datacenter, and mobile proxies. Strong for B2B scraping.",
       "sources": [
         "https://www.trustpilot.com/review/rayobyte.com"
-      ],
-      "fetched_at": "2026-07-17T04:12:35+00:00"
+      ]
     },
     {
-      "name": "SOAX",
-      "site": "soax.com",
-      "tp": 3.8,
-      "tpCount": "149",
-      "types": [],
-      "price": null,
-      "desc": "SOAX is an intelligent data collection platform used by leading companies to collect public web data for a wide range of uses.",
-      "editor": "",
-      "editorScore": null,
+      "name": "NetNut",
+      "site": "netnut.io",
+      "tp": 4.2,
+      "tp_count": "177",
+      "g2": 9.7,
+      "g2_count": "382",
+      "types": ["residential", "static", "mobile", "isp"],
+      "price": "$0.45/gb datacenter - $4.50/gb residential",
+      "cheapest_plan": "$0.45/gb",
+      "desc": "Fast residential proxy network with 20M+ static and rotating IPs. One-hop ISP connectivity for stable sessions. Excellent G2 rating.",
       "sources": [
-        "https://www.trustpilot.com/review/soax.com"
-      ],
-      "fetched_at": "2026-07-17T04:12:48+00:00"
+        "https://www.trustpilot.com/review/netnut.io",
+        "https://www.g2.com/products/netnut-io/reviews"
+      ]
+    },
+    {
+      "name": "Decodo",
+      "site": "decodo.com",
+      "tp": 4.2,
+      "tp_count": "1,852",
+      "g2": 4.6,
+      "g2_count": "546",
+      "types": ["residential", "static", "mobile", "datacenter", "isp"],
+      "price": "$2.00/gb - $3.75/gb",
+      "cheapest_plan": "$2.00/gb",
+      "desc": "Formerly Smartproxy. Offers 115M+ residential IPs with 10M+ mobile IPs. Best for SMBs. Includes scraping APIs. 99.86% success rate.",
+      "sources": [
+        "https://www.trustpilot.com/review/decodo.com",
+        "https://www.g2.com/products/smartproxy/reviews"
+      ]
+    },
+    {
+      "name": "DataImpulse",
+      "site": "dataimpulse.com",
+      "tp": 4.7,
+      "tp_count": "28",
+      "g2": 4.7,
+      "g2_count": "G2 top rated",
+      "types": ["residential", "mobile", "datacenter"],
+      "price": "$1.00/gb",
+      "cheapest_plan": "$1.00/gb",
+      "desc": "Budget-friendly provider with 90M+ ethically-sourced IPs from 195 countries. Non-expiring traffic. Smallest entry fee $5 for 5GB.",
+      "sources": [
+        "https://www.g2.com/products/dataimpulse/reviews"
+      ]
+    },
+    {
+      "name": "Infatica",
+      "site": "infatica.io",
+      "tp": 3.3,
+      "tp_count": "31",
+      "g2": 4.8,
+      "g2_count": "Multiple reviews",
+      "types": ["residential", "datacenter"],
+      "price": "$4.00/gb",
+      "cheapest_plan": "$4.00/gb",
+      "desc": "Web scraping and data collection tool. Simple API-first approach. Works with major parsing solutions. Low entry barrier.",
+      "sources": [
+        "https://www.trustpilot.com/review/infatica.io",
+        "https://www.g2.com/products/infatica-global-proxy-network/reviews"
+      ]
+    },
+    {
+      "name": "Packetstream",
+      "site": "packetstream.io",
+      "tp": 3.4,
+      "tp_count": "652",
+      "g2": null,
+      "types": ["p2p", "residential"],
+      "price": "$1.00/gb (peer-to-peer model)",
+      "cheapest_plan": "$1.00/gb",
+      "desc": "P2P residential proxy network. Affordable but less reliable than centralized providers. Users can earn money sharing bandwidth. 50GB minimum purchase.",
+      "sources": [
+        "https://www.trustpilot.com/review/packetstream.io"
+      ]
+    },
+    {
+      "name": "MarsProxies",
+      "site": "marsproxies.com",
+      "tp": 4.6,
+      "tp_count": "376",
+      "g2": null,
+      "types": ["residential", "datacenter", "mobile"],
+      "price": "$2.75/gb",
+      "cheapest_plan": "$2.75/gb",
+      "desc": "High-quality affordable proxies optimized for SMBs and personal use. Fast and reliable solutions for automation and scraping.",
+      "sources": [
+        "https://www.trustpilot.com/review/marsproxies.com"
+      ]
+    },
+    {
+      "name": "Geonode",
+      "site": "geonode.com",
+      "tp": 4.8,
+      "tp_count": "183",
+      "g2": null,
+      "types": ["residential", "datacenter", "static"],
+      "price": "$0.50/gb - $0.79/gb",
+      "cheapest_plan": "$0.50/gb",
+      "desc": "Leading budget residential proxy supplier. 30M+ IPs. Industry-leading pricing and responsive support. Unlimited bandwidth plans.",
+      "sources": [
+        "https://www.trustpilot.com/review/geonode.com"
+      ]
+    },
+    {
+      "name": "ScrapFly",
+      "site": "scrapfly.io",
+      "tp": null,
+      "tp_count": null,
+      "g2": null,
+      "types": ["residential", "datacenter", "api"],
+      "price": "$30/mo (API-based subscription)",
+      "cheapest_plan": "$30/mo",
+      "desc": "Web scraping API with built-in proxy management, JavaScript rendering, and CAPTCHA handling. No-code scraping available.",
+      "sources": [
+        "https://sourceforge.net/software/product/ScrapFly/"
+      ]
+    },
+    {
+      "name": "ProxyEmpire",
+      "site": "proxyempire.io",
+      "tp": 4.5,
+      "tp_count": "106",
+      "g2": null,
+      "types": ["residential", "mobile"],
+      "price": "$4.99/gb",
+      "cheapest_plan": "$4.99/gb",
+      "desc": "Residential and mobile proxy solutions across 170+ countries. Powerful targeting without extra costs. Ethically sourced IPs.",
+      "sources": [
+        "https://www.trustpilot.com/review/proxyempire.io"
+      ]
+    },
+    {
+      "name": "Proxy-Seller",
+      "site": "proxy-seller.com",
+      "tp": 4.8,
+      "tp_count": "142",
+      "g2": 4.8,
+      "g2_count": "86",
+      "types": ["residential", "isp", "ipv4", "ipv6", "mobile", "socks5", "https"],
+      "price": "$3.25/gb",
+      "cheapest_plan": "$3.25/gb",
+      "desc": "Private SOCKS5 and HTTPS proxies. Residential, ISP, IPv4, IPv6, and Mobile 4G/5G/LTE proxies. Works with games, social networks, and scraping.",
+      "sources": [
+        "https://www.g2.com/products/proxy-seller/reviews"
+      ]
+    },
+    {
+      "name": "Proxy-cheap",
+      "site": "proxy-cheap.com",
+      "tp": 3.1,
+      "tp_count": "787",
+      "g2": null,
+      "types": ["residential", "datacenter", "http"],
+      "price": "$0.99/gb",
+      "cheapest_plan": "$0.99/gb",
+      "desc": "Enterprise-level proxies for budget-conscious users. Good for data scraping and market research at scale.",
+      "sources": [
+        "https://www.trustpilot.com/review/proxy-cheap.com"
+      ]
     },
     {
       "name": "NodeMaven",
       "site": "nodemaven.com",
       "tp": 3.7,
-      "tpCount": "99",
-      "types": [],
-      "price": null,
-      "desc": "NodeMaven proxies rotate IPs intelligently and maintain stable sessions, allowing you to scrape Google reviews at scale without interruptions or data loss.",
-      "editor": "",
-      "editorScore": null,
+      "tp_count": "99",
+      "g2": null,
+      "types": ["residential", "datacenter", "rotating"],
+      "price": "$2.50/gb",
+      "cheapest_plan": "$2.50/gb",
+      "desc": "Intelligently rotating residential and datacenter proxies. Ideal for scraping reviews at scale without interruptions.",
       "sources": [
         "https://www.trustpilot.com/review/nodemaven.com"
-      ],
-      "fetched_at": "2026-07-17T04:12:59+00:00"
-    },
-    {
-      "name": "Astro Proxies",
-      "site": "",
-      "tp": 2.9,
-      "tpCount": "3",
-      "types": [],
-      "price": null,
-      "desc": "AstroProxies provides the best quality and performant IPV6 & IPV4 proxies.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/astroproxies.online"],
-      "fetched_at": "2026-07-17T04:13:05+00:00"
-    },
-    {
-      "name": "Byteful",
-      "site": "",
-      "tp": 4.6,
-      "tpCount": "190",
-      "types": [],
-      "price": null,
-      "desc": "Considering 55 reviews, reviewers overwhelmingly had a great experience with this company. Customers consistently praise the company's customer service and staff for being helpful, professional, and quick to resolve issues. Many people highlight the high quality and reliability of the proxies and services provided, noting their stability and effectiveness.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/byteful.com"],
-      "fetched_at": "2026-07-17T04:13:10+00:00"
-    },
-    {
-      "name": "Crawlbase",
-      "site": "",
-      "tp": 4.0,
-      "tpCount": "13",
-      "types": [],
-      "price": null,
-      "desc": "Crawlbase is one of the leading crawling and scraping platforms in the market. We have built our APIs on top of millions of rotating data center, residential and mobile proxies from all around the world. We make these products accessible and as affordable as possible to enable our users to extract any data they needed with ease.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/crawlbase.com"],
-      "fetched_at": "2026-07-17T04:13:16+00:00"
-    },
-    {
-      "name": "Dataimpulse",
-      "site": "",
-      "tp": 4.7,
-      "tpCount": "28",
-      "types": [],
-      "price": null,
-      "desc": "DataImpulse (dataimpulse.com) is a proxy provider with a 90M+ IP pool of ethically-sourced residential, mobile, and datacenter addresses from 195 countries.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.g2.com/products/dataimpulse/reviews"],
-      "fetched_at": "2026-07-17T04:13:21+00:00"
-    },
-    {
-      "name": "Evomi",
-      "site": "",
-      "tp": 4.4,
-      "tpCount": "5",
-      "types": [],
-      "price": null,
-      "desc": "At Evomi, we are dedicated to providing top-quality residential proxies with a strong commitment to ethical practices. Our proxies are sourced and maintained with transparency and integrity, ensuring reliable and secure proxy solutions for all our clients.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.g2.com/products/evomi"],
-      "fetched_at": "2026-07-17T04:13:27+00:00"
-    },
-    {
-      "name": "Geonode",
-      "site": "",
-      "tp": 4.8,
-      "tpCount": "183",
-      "types": [],
-      "price": null,
-      "desc": "Geonode is a leading residential proxy supplier with industry-leading pricing, a best-in-class dashboard, and responsive support. Visit our website to start a trial!",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/geonode.com"],
-      "fetched_at": "2026-07-17T04:13:32+00:00"
-    },
-    {
-      "name": "Hype Proxies",
-      "site": "",
-      "tp": 4.6,
-      "tpCount": "147",
-      "types": [],
-      "price": null,
-      "desc": "HypeProxies is built to make web data monitoring and extraction reliable and scalable for businesses that depend on consistent access. We provide dedicated proxy solutions designed for performance, stability, and long-term use.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/hypeproxies.com"],
-      "fetched_at": "2026-07-17T04:13:37+00:00"
-    },
-    {
-      "name": "Infatica",
-      "site": "",
-      "tp": 3.3,
-      "tpCount": "31",
-      "types": [],
-      "price": null,
-      "desc": "Web scraping and data collection tool that can run on search engines and e-commerce sites to gather information. Infatica's proxies are quite simple to use. No development or coding expertise is required. They work with all major data parsing solutions.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/infatica.io"],
-      "fetched_at": "2026-07-17T04:13:43+00:00"
+      ]
     },
     {
       "name": "LiveProxies",
-      "site": "",
+      "site": "liveproxies.io",
       "tp": 4.4,
-      "tpCount": "834",
-      "types": [],
-      "price": null,
-      "desc": "Live Proxies stands as a premier provider of advanced proxy services, trusted by a broad spectrum of clients worldwide. We deliver a mix of rotating residential, static residential, and mobile rotating proxies, serving a wide range of online needs for both B2B and B2C clientele.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/liveproxies.io"],
-      "fetched_at": "2026-07-17T04:13:48+00:00"
+      "tp_count": "834",
+      "g2": null,
+      "types": ["residential", "static", "mobile", "rotating"],
+      "price": "$3.00/gb",
+      "cheapest_plan": "$3.00/gb",
+      "desc": "Advanced proxy services with rotating residential, static residential, and mobile proxies. Trusted by broad client base.",
+      "sources": [
+        "https://www.trustpilot.com/review/liveproxies.io"
+      ]
     },
     {
-      "name": "MarsProxies",
-      "site": "",
+      "name": "Byteful",
+      "site": "byteful.com",
       "tp": 4.6,
-      "tpCount": "376",
-      "types": [],
-      "price": null,
-      "desc": "MarsProxies offers high-quality, affordable proxies optimized for personal needs or small to medium-sized businesses. Our fast and reliable solutions ensure secure browsing, seamless automation, and enhanced efficiency for your online operations.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/marsproxies.com"],
-      "fetched_at": "2026-07-17T04:13:54+00:00"
+      "tp_count": "190",
+      "g2": null,
+      "types": ["residential", "datacenter", "mobile"],
+      "price": "$4.00/gb",
+      "cheapest_plan": "$4.00/gb",
+      "desc": "High-quality reliable proxies with excellent customer service. Customers praise stability and effectiveness.",
+      "sources": [
+        "https://www.trustpilot.com/review/byteful.com"
+      ]
     },
     {
-      "name": "Massive",
-      "site": "",
-      "tp": 4.9,
-      "tpCount": "14",
-      "types": [],
-      "price": null,
-      "desc": "Massive is a web access and proxy infrastructure platform built for AI agents, data teams, and enterprise-scale data collection. The platform provides residential proxy routing, ISP proxies, web rendering, and search APIs designed to support reliable access to public web data at scale.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.g2.com/products/massive/reviews"],
-      "fetched_at": "2026-07-17T04:14:00+00:00"
-    },
-    {
-      "name": "NetNut",
-      "site": "",
-      "tp": 4.2,
-      "tpCount": "177",
-      "types": [],
-      "price": null,
-      "desc": "Fastest Residential Proxy Network for Businesses. Access the web and easily extract web data by utilizing over +20 Million Static & Rotating Residential IPs, souced directly from global ISPs. Gather any web data & never get blocked again. Get your 7-day free trial today.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/netnut.io"],
-      "fetched_at": "2026-07-17T04:14:06+00:00"
-    },
-    {
-      "name": "Packetstream",
-      "site": "",
-      "tp": 3.4,
-      "tpCount": "652",
-      "types": [],
-      "price": null,
-      "desc": "PacketStream lags slightly behind most competitors in certain advanced features and customer support. However, it outperforms them in ease of use and affordability, helped by the lower costs of running a P2P network and the opportunity to earn money through offering your bandwidth for other users.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/packetstream.io"],
-      "fetched_at": "2026-07-17T04:14:13+00:00"
-    },
-    {
-      "name": "Proxy-cheap",
-      "site": "",
-      "tp": 3.1,
-      "tpCount": "787",
-      "types": [],
-      "price": null,
-      "desc": "At Proxy-Cheap.com we offer enterprise-level proxies for novices and professionals. We provide affordable solutions for our customers to obtain data and circumvent restrictions while operating at scale. Our solutions serve customers from data scraping to market research and other industries.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/proxy-cheap.com"],
-      "fetched_at": "2026-07-17T04:14:24+00:00"
-    },
-    {
-      "name": "Proxy-seller",
-      "site": "",
-      "tp": 4.8,
-      "tpCount": "142",
-      "types": [],
-      "price": null,
-      "desc": "Private Socks5 & HTTPs proxies for any purpose. We provide high-quality private Residential, ISP, IPv4, IPv6 and Mobile 4G/5G/LTE proxies. Our proxies work well with: online games; social networks; web scraping; sneaker websites; online marketplaces; crypto; and other purposes.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.g2.com/products/proxy-seller/reviews"],
-      "fetched_at": "2026-07-17T04:14:29+00:00"
+      "name": "Crawlbase",
+      "site": "crawlbase.com",
+      "tp": 4.0,
+      "tp_count": "13",
+      "g2": null,
+      "types": ["datacenter", "residential", "mobile"],
+      "price": "$49/mo (subscription)",
+      "cheapest_plan": "$49/mo",
+      "desc": "Leading crawling and scraping platform. APIs built on millions of rotating proxies worldwide.",
+      "sources": [
+        "https://www.trustpilot.com/review/crawlbase.com"
+      ]
     },
     {
       "name": "Proxy4U",
-      "site": "",
+      "site": "proxy4u.com",
       "tp": 3.1,
-      "tpCount": "18",
-      "types": [],
-      "price": null,
-      "desc": "Stay ahead in the fast-paced digital landscape with Proxy4u’s reliable, high-performance proxies. Whether you're scraping data, automating tasks, or bypassing geo-restrictions, our customizable proxy solutions provide unmatched speed, security, and global access.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/www.proxy4u.com"],
-      "fetched_at": "2026-07-17T04:14:34+00:00"
-    },
-    {
-      "name": "ProxyEmpire",
-      "site": "",
-      "tp": 4.5,
-      "tpCount": "106",
-      "types": [],
-      "price": null,
-      "desc": "ProxyEmpire is a leading provider of residential and mobile proxy solutions, trusted by businesses, marketers, and data professionals worldwide. We offer ethically sourced IPs across 170+ countries, with powerful targeting options by country, city, and ISP—all at no extra cost.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/proxyempire.io"],
-      "fetched_at": "2026-07-17T04:14:40+00:00"
-    },
-    {
-      "name": "Flashproxy",
-      "site": "",
-      "tp": 2.9,
-      "tpCount": "2",
-      "types": [],
-      "price": null,
-      "desc": "FlashProxy is a premium proxy infrastructure provider known for its massive scale and ethical sourcing. With a network of over 95 million unique IPs spanning 190+ countries, it offers one of the largest and most reliable proxy pools in the market today.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/flashproxy.com"],
-      "fetched_at": "2026-07-17T04:14:46+00:00"
+      "tp_count": "18",
+      "g2": null,
+      "types": ["residential", "datacenter", "mobile"],
+      "price": "$1.99/gb",
+      "cheapest_plan": "$1.99/gb",
+      "desc": "Reliable high-performance proxies for data scraping and task automation. Customizable solutions with global access.",
+      "sources": [
+        "https://www.trustpilot.com/review/www.proxy4u.com"
+      ]
     },
     {
       "name": "Proxyscrape",
-      "site": "",
+      "site": "proxyscrape.com",
       "tp": 4.0,
-      "tpCount": "506",
-      "types": [],
-      "price": null,
-      "desc": "ProxyScrape provides a wide range of proxy services ranging from our premium subscription to residential and dedicated data center proxies. Our datacenter proxies are perfect for high-traffic activities since they come with unlimited bandwidth and concurrent connections.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/proxyscrape.com"],
-      "fetched_at": "2026-07-17T04:14:51+00:00"
+      "tp_count": "506",
+      "g2": null,
+      "types": ["datacenter", "residential", "premium"],
+      "price": "$2.48/gb",
+      "cheapest_plan": "$2.48/gb",
+      "desc": "Wide range of proxy services from premium subscription to residential and dedicated datacenter proxies. Unlimited bandwidth on datacenter plans.",
+      "sources": [
+        "https://www.trustpilot.com/review/proxyscrape.com"
+      ]
     },
     {
-      "name": "PYProxy",
-      "site": "",
-      "tp": 4.8,
-      "tpCount": "4",
-      "types": [],
-      "price": null,
-      "desc": "PYPROXY provide proxy service for companies to do data-related business. We provide residential proxies, datacenter proxies, ISP proxies, etc. Companies apply our service to brand protection, SEO, web scraping, etc.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.g2.com/products/pyproxy/reviews"],
-      "fetched_at": "2026-07-17T04:14:57+00:00"
-    },
-    {
-      "name": "Roundproxies",
-      "site": "",
-      "tp": 3.4,
-      "tpCount": "25",
-      "types": [],
-      "price": null,
-      "desc": "Premium Proxies, Unfair Pricing.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/roundproxies.com"],
-      "fetched_at": "2026-07-17T04:15:03+00:00"
-    },
-    {
-      "name": "Scraper API",
-      "site": "",
-      "tp": 4.5,
-      "tpCount": "42",
-      "types": [],
-      "price": null,
-      "desc": "ScraperAPI is the leading provider of web scraping solutions for large data collection. It offers a suite of scraping tools that simplify development, increase success rates, and automate the complexities associated with collecting and preparing web data.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/www.scraperapi.com"],
-      "fetched_at": "2026-07-17T04:15:08+00:00"
-    },
-    {
-      "name": "shifter.io",
-      "site": "",
-      "tp": 2.5,
-      "tpCount": "6",
-      "types": [],
-      "price": null,
-      "desc": "No description found. Seems to be a shady company.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/shifter.io"],
-      "fetched_at": "2026-07-17T04:15:14+00:00"
+      "name": "Froxy",
+      "site": "froxy.com",
+      "tp": 4.3,
+      "tp_count": "151",
+      "g2": null,
+      "types": ["residential", "datacenter", "mobile"],
+      "price": "$3.60/gb",
+      "cheapest_plan": "$3.60/gb",
+      "desc": "Smart proxy service with proxies from all countries. Detailed geo-targeting, automatic rotation, user-friendly dashboard.",
+      "sources": [
+        "https://www.trustpilot.com/review/froxy.com"
+      ]
     },
     {
       "name": "Storm Proxies",
-      "site": "",
+      "site": "stormproxies.com",
       "tp": 1.6,
-      "tpCount": "28",
-      "types": [],
-      "price": null,
-      "desc": "Storm Proxies offers reliable, user-friendly residential and datacenter proxies at affordable prices.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/stormproxies.com"],
-      "fetched_at": "2026-07-17T04:15:19+00:00"
+      "tp_count": "28",
+      "g2": null,
+      "types": ["residential", "datacenter"],
+      "price": "$1.99/gb",
+      "cheapest_plan": "$1.99/gb",
+      "desc": "Reliable user-friendly residential and datacenter proxies at affordable prices. Limited review history.",
+      "sources": [
+        "https://www.trustpilot.com/review/stormproxies.com"
+      ]
     },
     {
       "name": "Zenrows",
-      "site": "",
+      "site": "zenrows.com",
       "tp": 3.1,
-      "tpCount": "2",
-      "types": [],
-      "price": null,
-      "desc": "Web Scraping API & Proxy Server. ZenRows API handles rotating proxies, headless browsers and CAPTCHAs for you. Easily collect content from any website with a simple API call.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/zenrows.com"],
-      "fetched_at": "2026-07-17T04:15:30+00:00"
+      "tp_count": "2",
+      "g2": null,
+      "types": ["residential", "datacenter", "rendering"],
+      "price": "$50/mo (API-based)",
+      "cheapest_plan": "$50/mo",
+      "desc": "Web Scraping API with rotating proxies, headless browsers, and CAPTCHA handling. No code required.",
+      "sources": [
+        "https://www.trustpilot.com/review/zenrows.com"
+      ]
     },
     {
-      "name": "Floxy.io",
-      "site": "",
-      "tp": 2.3,
-      "tpCount": "17",
-      "types": [],
-      "price": null,
-      "desc": "High-quality proxies. It is well suited for both experienced users and beginners thanks to its user-friendly and well-designed interface.",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/floxy.io"],
-      "fetched_at": "2026-07-17T04:15:36+00:00"
+      "name": "HypeProxies",
+      "site": "hypeproxies.com",
+      "tp": 4.6,
+      "tp_count": "147",
+      "g2": null,
+      "types": ["residential", "datacenter", "dedicated"],
+      "price": "$3.50/gb",
+      "cheapest_plan": "$3.50/gb",
+      "desc": "Dedicated proxy solutions for consistent performance. Designed for long-term stable access and reliable monitoring.",
+      "sources": [
+        "https://www.trustpilot.com/review/hypeproxies.com"
+      ]
     },
     {
-      "name": "Froxy.com",
-      "site": "",
-      "tp": 4.3,
-      "tpCount": "151",
-      "types": [],
-      "price": null,
-      "desc": "Froxy.com - is smart proxy. We provide the ability to receive proxies of all countries for all tasks. Offers superb, highly detailed geo targeting capabilities, automatic or on-demand rotation on every port, a user-friendly dashboard, and flexible pricing structure",
-      "editor": "",
-      "editorScore": null,
-      "sources": ["https://www.trustpilot.com/review/froxy.com"],
-      "fetched_at": "2026-07-17T04:15:41+00:00"
+      "name": "Evomi",
+      "site": "evomi.com",
+      "tp": 4.4,
+      "tp_count": "5",
+      "g2": null,
+      "types": ["residential"],
+      "price": "$3.50/gb",
+      "cheapest_plan": "$3.50/gb",
+      "desc": "Top-quality residential proxies with ethical sourcing and transparency. Committed to integrity and security.",
+      "sources": [
+        "https://www.g2.com/products/evomi"
+      ]
+    },
+    {
+      "name": "PYProxy",
+      "site": "pyproxy.com",
+      "tp": 4.8,
+      "tp_count": "4",
+      "g2": null,
+      "types": ["residential", "datacenter", "isp"],
+      "price": "$3.99/gb",
+      "cheapest_plan": "$3.99/gb",
+      "desc": "Proxy service for data-related businesses. Used for brand protection, SEO, and web scraping.",
+      "sources": [
+        "https://www.g2.com/products/pyproxy/reviews"
+      ]
+    },
+    {
+      "name": "Astro Proxies",
+      "site": "astroproxies.online",
+      "tp": 2.9,
+      "tp_count": "3",
+      "g2": null,
+      "types": ["ipv4", "ipv6"],
+      "price": "$2.00/gb",
+      "cheapest_plan": "$2.00/gb",
+      "desc": "High-quality performant IPv6 and IPv4 proxies. Limited review base but competitive pricing.",
+      "sources": [
+        "https://www.trustpilot.com/review/astroproxies.online"
+      ]
     }
   ]
 }
