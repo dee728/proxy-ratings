@@ -237,9 +237,9 @@
       "g2": null,
       "types": ["residential", "datacenter", "static", "mobile", "ipv6"],
       "cheapest_plan": "$0.18/gb",
-      "desc": "FlashProxy is a premium proxy infrastructure provider known for its massive scale and ethical sourcing. With a network of over 95 million unique IPs spanning 190+ countries, it offers one of the largest and most reliable proxy pools in the market today.",
       "editor": "Very reliable proxy provider, cheaper than most competition",
       "editorScore": 4.5,
+      "desc": "FlashProxy is a premium proxy infrastructure provider known for its massive scale and ethical sourcing. With a network of over 95 million unique IPs spanning 190+ countries, it offers one of the largest and most reliable proxy pools in the market today.",
       "sources": ["https://www.trustpilot.com/review/flashproxy.com"]
     },
     {
