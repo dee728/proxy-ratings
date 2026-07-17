@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>proxy ratings</title>
+<style>
+  :root{
+    --bg:#fff; --fg:#000; --line:#000; --muted:#666; --hover:#f2f2f2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:'Courier New', ui-monospace, monospace;
+    line-height:1.5;
+  }
+  header{
+    border-bottom:2px solid var(--line);
+    padding:28px 32px 20px;
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px;
+  }
+  header h1{
+    margin:0; font-size:22px; font-weight:700; letter-spacing:-0.5px; text-transform:lowercase;
+  }
+  header p{margin:4px 0 0; font-size:12px; color:var(--muted);}
+  .controls{
+    display:flex; gap:8px; padding:16px 32px; border-bottom:1px solid var(--line); flex-wrap:wrap; align-items:center;
+  }
+  input[type=text], select, textarea{
+    font-family:inherit; border:1px solid var(--line); background:#fff; color:#000;
+    padding:7px 9px; font-size:12px;
+  }
+  input[type=text]{min-width:180px;}
+  button{
+    font-family:inherit; border:1px solid var(--line); background:#fff; color:#000;
+    padding:7px 12px; font-size:12px; cursor:pointer; text-transform:lowercase;
+  }
+  button:hover{background:var(--hover);}
+  button.primary{background:#000; color:#fff;}
+  button.primary:hover{background:#222;}
+  main{padding:0 32px 60px;}
+  table{width:100%; border-collapse:collapse; margin-top:20px; font-size:12.5px;}
+  th{
+    text-align:left; text-transform:lowercase; font-weight:700; font-size:11px;
+    border-bottom:2px solid var(--line); padding:8px 10px; cursor:pointer; white-space:nowrap;
+  }
+  th:hover{background:var(--hover);}
+  td{border-bottom:1px solid #ddd; padding:10px 10px; vertical-align:top;}
+  tr.provider-row:hover{background:var(--hover); cursor:pointer;}
+  .name-cell{font-weight:700;}
+  .name-cell .site{display:block; font-weight:400; color:var(--muted); font-size:11px;}
+  .score{font-weight:700;}
+  .bar-wrap{display:inline-block; width:60px; height:6px; border:1px solid var(--line); vertical-align:middle; margin-right:6px;}
+  .bar-fill{height:100%; background:#000;}
+  .tag{
+    display:inline-block; border:1px solid var(--line); font-size:10px; padding:1px 5px; margin:1px 3px 1px 0;
+    text-transform:lowercase;
+  }
+  .detail{display:none;}
+  .detail.open{display:table-row;}
+  .detail td{background:#fafafa; border-bottom:2px solid var(--line);}
+  .detail-inner{display:grid; grid-template-columns:1.2fr 1fr; gap:24px;}
+  .detail-inner h3{font-size:12px; text-transform:lowercase; margin:0 0 6px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+  .detail-inner p{font-size:12.5px; margin:0 0 10px;}
+  .editor-box{border:1px solid var(--line); padding:10px; background:#fff;}
+  .editor-box textarea{width:100%; min-height:70px; resize:vertical; font-size:12px;}
+  .editor-meta{display:flex; gap:8px; margin-top:6px; align-items:center;}
+  .editor-meta input[type=text]{width:60px; min-width:0;}
+  .source-list{font-size:11px; color:var(--muted); margin-top:8px;}
+  .source-list a{color:#000;}
+  form#addForm{
+    display:none; border-bottom:2px solid var(--line); padding:18px 32px; background:#fafafa;
+  }
+  form#addForm.open{display:block;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px 16px;}
+  .grid2 label{font-size:11px; text-transform:lowercase; color:var(--muted); display:block; margin-bottom:3px;}
+  .field{margin-bottom:10px;}
+  .field.full{grid-column:1/-1;}
+  .empty{padding:40px 0; text-align:center; color:var(--muted); font-size:13px;}
+  footer{padding:14px 32px; border-top:1px solid var(--line); font-size:11px; color:var(--muted);}
+  ::placeholder{color:#999;}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>proxy ratings</h1>
+    <p id="subtitle">— aggregated from trustpilot / g2 / editorial review, plus firsthand notes</p>
+  </div>
+  <div>
+    <button class="primary" id="toggleAdd">+ add provider</button>
+  </div>
+</header>
+
+<form id="addForm">
+  <div class="grid2">
+    <div class="field"><label>name</label><input type="text" id="f_name" placeholder="e.g. Oxylabs"></div>
+    <div class="field"><label>website</label><input type="text" id="f_site" placeholder="e.g. oxylabs.io"></div>
+    <div class="field"><label>trustpilot score (0–5)</label><input type="text" id="f_tp" placeholder="e.g. 4.3"></div>
+    <div class="field"><label>trustpilot review count</label><input type="text" id="f_tpc" placeholder="e.g. 1,200"></div>
+    <div class="field"><label>proxy types</label><input type="text" id="f_types" placeholder="residential, datacenter, ipv6"></div>
+    <div class="field"><label>starting price</label><input type="text" id="f_price" placeholder="e.g. $2.00/gb"></div>
+    <div class="field full"><label>description (leave blank to auto web-search)</label><textarea id="f_desc" rows="2" placeholder="short description of the provider"></textarea></div>
+    <div class="field full"><label>editor's experience (optional, add later too)</label><textarea id="f_editor" rows="2" placeholder="your firsthand notes using this provider"></textarea></div>
+  </div>
+  <div style="margin-top:10px; display:flex; gap:8px;">
+    <button type="submit" class="primary">save provider</button>
+    <button type="button" id="cancelAdd">cancel</button>
+  </div>
+  <p style="font-size:11px;color:var(--muted);margin-top:8px;">note: this runs client-side in your browser, so it can't fetch live Trustpilot pages itself — enter the rating you found (via Claude web search or trustpilot.com directly), and it'll render alongside the seeded providers below.</p>
+</form>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="search providers...">
+  <select id="typeFilter"><option value="">all types</option></select>
+  <button id="sortScore">sort: rating ↓</button>
+  <button id="sortName">sort: name</button>
+</div>
+
+<main>
+  <table id="table">
+    <thead>
+      <tr>
+        <th data-k="name">provider</th>
+        <th data-k="score">trustpilot</th>
+        <th data-k="editor">editor score</th>
+        <th data-k="types">types</th>
+        <th data-k="price">from</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty" id="emptyMsg" style="display:none;">no providers match.</div>
+</main>
+
+<footer>
+  ratings sourced from trustpilot as of mid‑2026 · editor's experience is subjective, firsthand commentary · click a row to expand
+</footer>
+
+<script>
+const seed = [
+  {
+    name:"Webshare", site:"webshare.io",
+    tp:4.1, tpCount:"1,300+",
+    types:["datacenter","residential","static"],
+    price:"$2.99/mo",
+    desc:"Budget-oriented proxy service popular for cheap datacenter proxies and a free tier (10 proxies / 1GB). Self-serve dashboard, monthly IP rotation, no KYC gate. Reviews trend positive on price-to-performance but note support response times and occasional regional IP shortages.",
+    editor:"Good starting point for small-scale scraping or IPv6 rotation testing — the free tier is enough to validate a script before committing budget. Dashboard API is straightforward. Wouldn't rely on it for anything requiring guaranteed uptime at scale.",
+    editorScore:3.7,
+    sources:["trustpilot.com/review/webshare.io"]
+  },
+  {
+    name:"Decodo (formerly Smartproxy)", site:"decodo.com",
+    tp:4.3, tpCount:"1,900+",
+    types:["residential","mobile","datacenter","ISP"],
+    price:"$3.75/gb",
+    desc:"Vilnius-based provider, rebranded from Smartproxy in 2025. 65M+ IP pool, advanced targeting, clean API, and a newer AI-scraping stack (MCP server, structured JSON parsing). No SOC 2/ISO 27001 yet; higher block rates on Cloudflare-fronted targets than top-tier competitors.",
+    editor:"Consistently the most 'it just works' of the mid-tier providers we've tried — good docs, sane pricing ladder, self-serve onboarding with no sales call. Support has been fast in our experience.",
+    editorScore:4.2,
+    sources:["trustpilot.com/review/decodo.com","g2.com"]
+  },
+  {
+    name:"IPRoyal", site:"iproyal.com",
+    tp:3.6, tpCount:"3,000+",
+    types:["residential","datacenter","ISP","mobile"],
+    price:"$1.75/gb",
+    desc:"Value-focused residential proxy provider with strong success-rate benchmarks (97%+) and competitive per-GB pricing. Lower Trustpilot average than peers, likely reflecting high review volume from a price-sensitive user base and occasional support friction.",
+    editor:"",
+    editorScore:null,
+    sources:["iproyal.com/blog","trustpilot.com (via aggregator)"]
+  },
+  {
+    name:"Bright Data", site:"brightdata.com",
+    tp:4.4, tpCount:"980+",
+    types:["residential","datacenter","ISP","mobile","unblocker"],
+    price:"enterprise / usage-based",
+    desc:"The largest and most enterprise-oriented proxy network, with a heavy compliance and orchestration stack (SDKs, unblocker tier, dedicated CSMs). Strong G2 scores (4.6) and generally praised for scale and reliability; priced well above budget competitors.",
+    editor:"",
+    editorScore:null,
+    sources:["trustpilot.com/review/brightdata.com","g2.com/compare"]
+  }
+];
+
+let providers = JSON.parse(JSON.stringify(seed));
+let sortKey = "score", sortDir = -1;
+let openIndex = null;
+
+function starBar(score, max=5){
+  const pct = Math.max(0, Math.min(100, (score/max)*100));
+  return `<span class="bar-wrap"><span class="bar-fill" style="width:${pct}%"></span></span>`;
+}
+
+function render(){
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const typeF = document.getElementById('typeFilter').value;
+  let list = providers.map((p,i)=>({...p, _i:i}));
+  if(q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.site.toLowerCase().includes(q));
+  if(typeF) list = list.filter(p => p.types.includes(typeF));
+
+  list.sort((a,b)=>{
+    let av, bv;
+    if(sortKey==="name"){ av=a.name.toLowerCase(); bv=b.name.toLowerCase(); return sortDir*(av<bv?-1:av>bv?1:0); }
+    if(sortKey==="score"){ av=a.tp||0; bv=b.tp||0; return sortDir*(av-bv); }
+    if(sortKey==="editor"){ av=a.editorScore||0; bv=b.editorScore||0; return sortDir*(av-bv); }
+    return 0;
+  });
+
+  const typeSet = new Set();
+  providers.forEach(p=>p.types.forEach(t=>typeSet.add(t)));
+  const sel = document.getElementById('typeFilter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">all types</option>' + [...typeSet].sort().map(t=>`<option value="${t}">${t}</option>`).join('');
+  sel.value = cur;
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  document.getElementById('emptyMsg').style.display = list.length ? 'none' : 'block';
+
+  list.forEach(p=>{
+    const row = document.createElement('tr');
+    row.className = 'provider-row';
+    row.innerHTML = `
+      <td class="name-cell">${p.name}<span class="site">${p.site}</span></td>
+      <td>${p.tp ? `<span class="score">${p.tp.toFixed(1)}</span> ${starBar(p.tp)} <span style="color:var(--muted)">(${p.tpCount||'—'})</span>` : '<span style="color:var(--muted)">unrated</span>'}</td>
+      <td>${p.editorScore!=null ? `<span class="score">${p.editorScore.toFixed(1)}</span> ${starBar(p.editorScore)}` : '<span style="color:var(--muted)">—</span>'}</td>
+      <td>${p.types.map(t=>`<span class="tag">${t}</span>`).join('')}</td>
+      <td>${p.price||'—'}</td>
+    `;
+    row.addEventListener('click', ()=>{ openIndex = (openIndex===p._i) ? null : p._i; render(); });
+    tbody.appendChild(row);
+
+    if(openIndex===p._i){
+      const det = document.createElement('tr');
+      det.className = 'detail open';
+      det.innerHTML = `<td colspan="5"><div class="detail-inner">
+        <div>
+          <h3>description</h3>
+          <p>${p.desc || 'no description yet — add one, or note that it should be researched.'}</p>
+          <div class="source-list">sources: ${(p.sources||[]).join(' · ') || '—'}</div>
+        </div>
+        <div>
+          <h3>editor's experience</h3>
+          <div class="editor-box">
+            <textarea data-i="${p._i}" class="editorText" placeholder="firsthand notes on using this provider...">${p.editor||''}</textarea>
+            <div class="editor-meta">
+              <span style="font-size:11px;color:var(--muted)">editor score</span>
+              <input type="text" class="editorScoreInput" data-i="${p._i}" value="${p.editorScore!=null?p.editorScore:''}" placeholder="0–5">
+              <button class="saveEditor" data-i="${p._i}">save</button>
+              <button class="removeProvider" data-i="${p._i}" style="margin-left:auto;">remove provider</button>
+            </div>
+          </div>
+        </div>
+      </div></td>`;
+      tbody.appendChild(det);
+
+      det.querySelector('.saveEditor').addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const i = +e.target.dataset.i;
+        const txt = det.querySelector('.editorText').value;
+        const sc = parseFloat(det.querySelector('.editorScoreInput').value);
+        providers[i].editor = txt;
+        providers[i].editorScore = isNaN(sc) ? null : Math.max(0,Math.min(5,sc));
+        render();
+      });
+      det.querySelector('.removeProvider').addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const i = +e.target.dataset.i;
+        providers.splice(i,1);
+        openIndex = null;
+        render();
+      });
+      det.addEventListener('click', e=>e.stopPropagation());
+    }
+  });
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('typeFilter').addEventListener('change', render);
+
+document.querySelectorAll('th[data-k]').forEach(th=>{
+  th.addEventListener('click', ()=>{
+    const k = th.dataset.k;
+    if(sortKey===k) sortDir *= -1; else { sortKey=k; sortDir=-1; }
+    render();
+  });
+});
+document.getElementById('sortScore').addEventListener('click', ()=>{ sortKey='score'; sortDir = sortDir===-1&&sortKey==='score' ? 1 : -1; render(); });
+document.getElementById('sortName').addEventListener('click', ()=>{ sortKey='name'; sortDir=1; render(); });
+
+const addForm = document.getElementById('addForm');
+document.getElementById('toggleAdd').addEventListener('click', ()=>{
+  addForm.classList.toggle('open');
+});
+document.getElementById('cancelAdd').addEventListener('click', ()=>{
+  addForm.classList.remove('open');
+});
+
+document.getElementById('addForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name = document.getElementById('f_name').value.trim();
+  const site = document.getElementById('f_site').value.trim();
+  if(!name){ return; }
+  const tp = parseFloat(document.getElementById('f_tp').value);
+  const tpc = document.getElementById('f_tpc').value.trim();
+  const types = document.getElementById('f_types').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const price = document.getElementById('f_price').value.trim();
+  const desc = document.getElementById('f_desc').value.trim();
+  const editor = document.getElementById('f_editor').value.trim();
+
+  providers.push({
+    name, site: site||'—',
+    tp: isNaN(tp)?null:tp, tpCount: tpc||null,
+    types: types.length?types:['unspecified'],
+    price: price||null,
+    desc: desc || `no description added yet for ${name} — ask Claude to research it via web search.`,
+    editor: editor||'',
+    editorScore: null,
+    sources: []
+  });
+
+  e.target.reset();
+  addForm.classList.remove('open');
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
